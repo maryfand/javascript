@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>隔行变色</title>
+    <style>
+    ul,li{list-style: none;}
+    #list{
+        margin: 10px auto;
+        padding: 10px;
+        width: 500px;
+        border: 1px solid pink;
+        border-radius: 10px;
+        background:-webkit-linear-gradient(top left,#444444 #888888)
+    }
+    #list li {
+        height: 30px;
+        line-height: 30px;
+        cursor: pointer;
+    }
+    #list li:hover{
+        background-color: mediumvioletred;
+    }
+    .c1{
+        background-Color:pink
+    }
+    .c2{
+        background-Color:rgb(86, 211, 117)
+    }
+
+
+    </style>
+</head>
+<body>
+    <div>
+        <ul id='list'>
+            <li class="c1" >vs新建HTML网页，写完代码要怎样运行，查看效果</li>
+            <li class="c2" >DARLING in the FRANXX 专楼第十二话更新! - 第58页- ...</li>
+            <li>登录后评论 收藏到推刊 创建推刊 收藏 取...</li>
+            <li>VS Code有哪些常用的快捷键? - 知乎</li>
+            <li>非常全的VsCode快捷键 - CSDN博客</li>
+            <li>VS Code 的常用快捷键 - 风行天下一万号 - 博客园</li>
+        </ul>
+    </div>
+    <script>
+        //操作所有的li，让所有操作按奇偶行的样式隔行改变，
+        //通过元素的标签名获取一组元素，document.getElementsbyTagName("元素的标签名")
+        //在整个文档中，通过元素的标签名div，li,p.....来获取一组元素
+        //获取整个文档中的li，他们是一个集合，我们把这个集合称为类数组，并且类数组是对象数据类型的,索引是属性名，是从零开始的，代表当前的第几个元素的位置下标；索引为0代表第一个Li.索引为n代表n+1个li;
+
+     //  var oList=document.getElementById('list');
+       /* console.log(oList)
+       
+        /*获取属性名时可以写成 oList.length,也可以写成 oList['length']
+        /*length代表获取的集合长度，或者是当前获取的多少个li*/
+      /* console.log(oList.length);
+       console.log(oList['length']);*/
+     // console.log(oLi[0]);/*获取某一个指定的元素*/
+      /* console.log(oList.item(0));通过DOM的方法获取的类数组也可以用.item获取索引中的某一个*/
+   //   var oLis= oList.getElementsByTagName('li');
+      
+     // for (var i=0;i<oLis.length;i++){
+        
+          //i=0 第一次循环，争取第一个 li oList[0];
+          //i=1 第二次循环。争取第二个 li oList[1];
+         /*每次循环中在类数组中把每个li取出来*/
+          //i的值是奇数行代表偶数，i的值是偶数行代表奇数
+        /*  var oLi=oLis[i];
+          i%2===0?oLi.className='c1':oLi.className='c2';
+          oLis.className='c1';
+     
+          
+      }*/
+
+/*完整代码
+ var oList=document.getElementById('list');
+ var oLis= oList.getElementsByTagName('li');
+ for (var i=0;i<oLis.length;i++){
+  var oLi=oLis[i];
+          i%2===0?oLi.className='c1':oLi.className='c2';
+          oLis.className='c1';
+ }
+      */
+
+
+      //swith循环实现隔行代码
+   /*  var oList=document.getElementById('list');
+ var oLis= oList.getElementsByTagName('li');
+ for (var i=0;i<oLis.length;i++){
+    var oLi=oLis[i];
+     switch(i%3){
+         case 0:
+         oLi.className = "c1";
+         break;
+         case 1:
+         oLi.className = "c2";
+        break;
+        default:
+        oLi.className = "c3";
+     }
+ }*/
+ var oList=document.getElementById('list');
+ var oLis= oList.getElementsByTagName('li');
+ for (var i=0;i<oLis.length;i++){
+  var oLi=oLis[i];
+          i%2===0?(oLi.className='c1',oLi.zhufeng="c1"):(oLi.className='c2',oLi.zhufeng="c2");
+          oLis.className='c1';
+          //因为每一个li都是对象数据类型的，那么应用这个思想我们给每一个li增加一个自定义的属性名，属性值就是当前li的classname名
+ }
+oLi.onmouseover=function(){
+    this.className="c3";
+}
+oLi.onmouseout=function(){
+    var oLdVal=this.zhufeng;
+    this.className='oLdVal'
+}
+    </script>
+</body>
+</html>
