@@ -21,8 +21,8 @@ for (var i=0;i<oLis.length;i++)
 }*/
 
     var oTab = document.getElementById("tab");
-    var oLis = oTab.getElementsByTagName("li");
-    var oDivs = oTab.getElementsByTagName("div");
+    var oLis = oTab.getElementsByName("li");
+    var oDivs = oTab.getElementsByName("div");
 
     for(var i=0;i<oLis.length;i++){
         var oLi =oLis[i]

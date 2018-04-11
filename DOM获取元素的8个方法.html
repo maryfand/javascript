@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+        .tab{
+            border: 1px solid pink
+        }
+    </style>
 </head>
 <body>
     <div>
@@ -17,10 +22,10 @@
         <div></div>
         <div class="zf"></div>
     </div>
-    <input type="radio"  value="男" class="sex" checked="true"/>男
-    <input type="radio" value="女"  class="sex"/>女
-    <input type="radio" class="marry" />已婚
-    <input type="radio" class="marry" checked="checked"/>未婚
+    <input type="radio"  value="男" name="sex" checked="true"/>男
+    <input type="radio" value="女"  name="sex"/>女
+    <input type="radio" name="marry" />已婚
+    <input type="radio" name="marry" checked="checked"/>未婚
     <input type="button" value="获取性别" id="btn">
     <script>
     //DOm:文档对象模型
@@ -43,9 +48,9 @@
     var oLis=oTab.getElementsByTagName("li");
     console.dir("oLis");*/
 
-    var oBtn= document.getElementById("btn");
+ /*   var oBtn= document.getElementById("btn");
     oBtn.onclick=function(){
-    var oSex=document.getElementsByClassName("sex");
+    var oSex=document.getElementsByName("sex");
     var cur="";
     for(var i=0;i<oSex.length;i++){
         if(oSex[i].checked===true){
@@ -55,7 +60,25 @@
     }
     console.log(cur);
 
-    }
+    }*/
+    //(4)context.getElementsByClassName()通过元素的类名(class值)
+  //  var oList = document.getElementsByClassName("tab");
+   // console.dir(oList[0]);不兼容
+
+   //(5)document.documentElement//获取HTML元素
+   // document.body //获取body元素
+  /* var curWidth=document.documentElement.clientWidth||document.body.clientWidth;//兼容所有浏览器获取当前屏幕的宽度
+   var curWidth=document.documentElement.clientHeight||document.body.clientHeight;////兼容所有浏览器获取当前屏幕的高度*/
+    //(6)在移动端我们获取元素常用的方法(IE6-8不兼容)
+    //document.querySelector()
+    //document.querySelectorAll()/*获取多个类数组的集合**/
+    //var oDiv=document.querySelector("#tab");
+    //#id .class li
+    //var oLis=document.querySelectorAll("#tab li");
+    //document.querySelectorAll("input[type='radio']");
+
+    //jQuery中的选择器是参考css选择器的规则
+    
     
     </script>
 </body>
