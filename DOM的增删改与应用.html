@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //动态创建一个元素标签
+        //动态创建一个div元素对象
+        //document.createElement
+        //oldEle.parentNode.insertBefore(newEle,oldEle)
+         var oDiv=document.createElement("div");
+           oDiv.id="div1";
+       
+           oDiv.style.width="200px";
+           oDiv.style.height="100px";
+           oDiv.style.border="2px solid red";
+          // 还要把这个对象添加到我们的页面中
+           document.body.appendChild(oDiv);
+           
+           var oP=document.createElement("p");
+           oP.id="p1";
+           oP.style.width="200px";
+           oP.style.height="100px";
+           oP.style.border="2px solid yellow";
+         //  document.body.insertBefore(oP,oDiv);
+           oDiv.parentNode.insertBefore(oP,oDiv);
+           oDiv.parentNode.removeChild(oDiv);
+       
+           var clo = oP.cloneNode("true");//把元素的子子孙孙都克隆下来，默认是false,只克隆当前的
+           clo.style.backgroundColor="yellow";
+           document.body.appendChild(clo);
+       
+           var dd = document.createElement("div");
+           dd.style.width="200px";
+           dd.style.height="100px";
+           dd.style.border="1px solid pink";
+           document.body.appendChild(dd)
+
+        /*var oDiv = document.createElement("div");
+        oDiv.id = "div1";
+
+        oDiv.style.width = "200px";
+        oDiv.style.height = "100px";
+        oDiv.style.border = "2px solid red";
+
+        document.body.appendChild(oDiv);
+        var oFiv = document.createElement("div");
+        oFiv.id = "div1";
+
+
+        oFiv.style.width = "200px";
+        oFiv.style.height = "100px";
+        oFiv.style.border = "1px solid green";
+        //   document.body.insertBefore(oFiv,oDiv);
+        document.body.appendChild(oFiv);
+        oFiv.parentNode.insertBefore(oFiv, oDiv)
+        //  oFiv.parentNode.removeChild(oFiv);
+
+        var clo = oFiv.cloneNode("true");//把元素的子子孙孙都克隆下来，默认是false,只克隆当前的
+        clo.style.backgroundColor = "yellow";
+        document.body.appendChild(clo);
+
+        var clon = oDiv.cloneNode("true");
+        clon.style.backgroundColor = "pink";
+        document.body.appendChild(clon);*/
+
+        //增加自定义属性
+        //1.把clo看做一个对象数据类型，我们在开辟的空间中增加一个属性名"zhufeng"
+        //类似于 var obj = {};obj.name="123"
+        //clo.zhufeng
+        //clo.[zhufeng]
+        //setAttribute设置元素的属性(包含自定义属性)
+        //使用这个方法可以修改html的结构
+        //getAttribute
+        //removeAttribute
+       
+        clo.setAttribute("李伦","lilun")
+        console.log(clo.getAttribute("李伦"))
+        clo.removeAttribute("李伦")
+        //在IE6-8中这种方法不能修改class属性 clo.setAttribute("class","lilun")是不起作用的
+        clo.ClassName="lilun";/*这样可以*/
+    </script>
+</body>
+
+</html>

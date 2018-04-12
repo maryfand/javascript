@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="divs">
+        <h1>开放的中国 繁荣的世界</h1>
+        <ul>
+            <li>班主任录视频指学生偷笔 教育局:就算冤枉多大点事?</li>
+            <li>中国艺术团应邀于13日赴朝鲜参加"四月之春"艺术节</li>
+            <li id="li3">美航母打击群开赴中东 欧洲发布72小时对叙空袭预警全球市</li>
+            <li>"台独"联盟推"公投" 国台办:蚍蜉撼大树 可笑不自量</li>
+        </ul>
+    </div>
+    <script>
+        //如果我想获取li3的上一个哥哥元素节点，我们发现，直接previousSibling获取的不一定是元素，往上面再找多少级也不知道
+
+        var oLi3 =document.getElementById("li3");
+        console.log(oLi3.previousSibling.previousSibling);
+
+      /*  for(var i=0;i<5;i++){
+            if(i<=5){
+                i+=1;
+                continue;
+            }else{
+                break;
+                i+=2;
+            }
+        }
+        var i=0;
+        while(i<5){
+            if(i<=5){
+                i+=1;
+                i++;
+                continue;
+            }else{
+                break;
+                i+=2;
+            }
+        }*/
+    </script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="s">
+        <h1>lifengnan</h1>
+        <ul>
+            <li>HTML+CSS</li>
+            <li>免费课程</li>
+            <li>javascipt</li>
+            <li>html5正式课</li>
+            <li>node,js正式课</li>
+        </ul>
+    </div>
+    <script>
+        //节点：Node 一个页面中的标签、文字、注释,...都是节点
+        //获取关系的属性
+        //childNodes:获取所有的子节点
+        //children:获取所有元素的子节点
+        //parentNodes:获取所有元素的父节点
+        //previoussibling:获取同级节点
+        //nextSibling:获取下级节点
+        //firstChild:获取所有子节点中的第一个
+        //lastChild:获取所有子节点中的最后一个
+
+
+
+        //在js中需要我们掌握的节点类型：
+      
+           
+                              // nodeType   nodeName   nodeValue
+        //元素节点(元素标签)         1        大写的标签名    null
+        //文本节点                  3         #text         文字内容
+        //注释节点                  8        #comment      注释内容               
+        //document                 9         #document      null
+        
+       // 在标准浏览器下，我们把空格和Enter(回车)都当做我们的文本
+        var oDiv = document.getElementById("s")
+       /* console.log(oDiv.nodeType );//1
+        console.log(oDiv.nodeName );//div
+        console.log(oDiv.nodeValue);//null*/
+       // console.log(oDiv.childNodes);
+        /*console.log(oDiv.childNodes);//获取所有的子节点
+        console.log(oDiv.parentNode);
+        console.log()*/
+
+
+        //方法：模拟children方法，实现获取指定元素下的元素子节点
+        /*
+        *getMychildren:
+               获取指定元素下的所有元素节点
+        *@parameter:
+        *ele:  我们要获取谁下面的，就把谁传进来
+        *tagName:你告诉我的获取那种类型的元素，例如："div"就是代表获取div元素节点
+        *return:
+        *      我们最后获取的元素子节点
+        *by 李凤南 on 2018/4/11
+        * **/
+        function getMyChildren(ele,tagName){
+            //1.弄一个空盒子放我们想要的元素，然后获取ele下的所有的子节点(包含文本、注释、元素)          
+            var ary=[],nodes=ele.childNodes;
+             //2.循环所有的子节点
+            for(var i=0;i<nodes.length;i++){
+                //3.把每次循环得到的对应的节点赋值给cur，而且可能是文本/注释/元素
+                var cur =nodes[i];
+                //4.我们只需要把元素放到我们的盒子中就可以了，那么我们就通过nodeType等于1的就是我们的这个规律，把我们的元素节点放到盒子中
+            if(cur.nodeType===1){
+                    //5.push是添加的意思
+                   
+                if(tagName){
+                    //6.如果你传递给我tagName了,我们进一步筛选
+                    if(cur.nodeName.toLowerCase()===tagName.toLowerCase() )
+                    {
+                        ary.push(cur)
+                    }
+                }
+                 else{
+                        //7.如果没有传递，默认就把所有的元素放在盒子里
+                        ary.push(cur);
+                    }
+                    
+                }
+            }
+            return ary;
+        }
+        console.log(getMyChildren(oDiv,"ul"));
+    </script>
+</body>
+</html>
