@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    body,div{
+        margin: 0;
+        padding: 0;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-size: 24px;
+    }
+    #div1{
+        width: 600px;
+        height: 50px;
+        line-height: 50px;
+        margin: 10px auto;
+        text-align: center;
+        background-color: palevioletred;
+        border:1px solid paleturquoise
+    }
+    </style>
+</head>
+<body>
+    
+    <div id="div1">北京时间：</div>
+    <script>
+    //获取当前自己电脑的时间
+    //var time =new Date();
+   // console.log(time)
+    //2015年
+
+
+    var oDiv=document.getElementById("div1");
+    var timeStr =formatTime() ;
+    oDiv.innerHTML+=timeStr;
+
+    function formatTime(){
+    var time =new Date();
+    var year=time.getFullYear();
+    var month=time.getMonth()+1;
+
+    var day = time.getDate();
+    var w = time.getDay();
+    var wStr = "日一二三四五六";
+    week=wStr.charAt(w);
+
+
+    var hours = time.getHours();
+    var minutes = time.getMinutes();
+    var seconds =time.getSeconds();
+    var mlSeconds=time.getMilliseconds();
+    return year+"年"+zero(month)+"月"+zero(day)+"日 星期"+week+""+zero(hours)+"时"+
+    zero(minutes)+"分"+zero(seconds)+"秒"
+    }
+
+    function zero(value){
+        return value < 10?"0"+value:value;
+    }
+    </script>
+</body>
+</html>

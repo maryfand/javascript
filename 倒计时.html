@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+    //把时间格式的字符变成我们的标准时间格式
+      //var tar=new Date("");
+      //对字符串的格式要求
+      //中间用-在IE6-8下不兼容，需要改成"/"
+
+      var tarTime="2015/05/24  17:59:59";
+      var nowTime=new Date();
+      var tarSpan=tarTime.getTime();
+      var nowSpan=nowTime.getTime();
+      var diffTime=tarSpan - nowSpan;
+    </script>
+</body>
+</html>
