@@ -7,20 +7,21 @@
     <title>Document</title>
 </head>
 <body>
-    <div id="div">距离下班：00：23:35
-    </div>
+    <div id="div1">距离下班：00:23:35</div>
     <script type="text/javascript">
-    var oDiv=document.getElementById
+    //var oDiv=document.getElementById
     //把时间格式的字符变成我们的标准时间格式
       //var tar=new Date("");
       //对字符串的格式要求
       //中间用-在IE6-8下不兼容，需要改成"/"
 
       var oDiv = document.getElementById("div1");
-      
-        var str = getSpanTime();
+       var str = getSpanTime();
         oDiv.innerHTML += str;
+  
     function getSpanTime(){
+
+
     var tarTime=new Date("2015/05/24  17:59:59");
       var nowTime=new Date();
       var tarSpan=tarTime.getTime();
@@ -29,21 +30,24 @@
       var diffTime=tarSpan - nowSpan;
     
         //2.算出当前这几个小时占了多少毫秒
-      var hour=Math.floor(diffTime / (1000*60*60))
+      var hour=Math.floor(diffTime / (1000*60*60));
 
         var hourMs = hour*60*60*1000;
       //3.接下来算分钟的时候，需要把小时占用的减去
       var spanMs = diffTime - hourMs;
       //4.开始算spanMs 中包含多少分钟
 
-      var minutes = Math.floor(spanMs/(1000*60))
+      var minutes = Math.floor(spanMs/(1000*60));
 
       var minuteMs = minutes*60*1000;
 
-     spanMs = spanMs - minuteMs;
+      spanMs = spanMs - minuteMs;
 
      var second = Math.floor(spanMs / 1000);
      return zero(hour)+":"+zero(minutes) + ":" +zero(second);
+
+
+
     }
      
     
